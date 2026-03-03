@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地视频介绍 - HTML5</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* 视频容器：保持宽高比，响应式 */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            /* 假设视频是 16:9，padding-bottom 设为 56.25% (9/16) */
+            /* 如果视频是其他比例，可调整此值或直接让 video 标签自适应 */
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tips {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #888;
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ffeeba;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>公司产品介绍</h1>
+        <p class="description">
+            这是一个基于本地文件的 HTML5 视频演示。<br>
+            视频文件存储在当前的 <code>videos/</code> 文件夹中。
+        </p>
+
+        <div class="video-wrapper">
+            <!-- 
+              关键点：src 属性指向本地相对路径 
+              如果视频和 html 在同一目录，直接写 src="intro.mp4"
+              如果视频在子文件夹，写 src="videos/intro.mp4"
+            -->
+            <video controls poster="images/poster.jpg">
+                <!-- 替换为你的本地视频路径 -->
+                <source src="intro.mp4" type="video/mp4">
+                
+                您的浏览器不支持 HTML5 视频标签，请升级浏览器。
+            </video>
+        </div>
+
+        <div class="tips">
+            <strong>提示：</strong> 如果视频无法播放，请检查：<br>
+            1. <code>videos/intro.mp4</code> 文件是否存在？<br>
+            2. 文件名是否拼写正确（区分大小写）？<br>
+            3. 视频格式是否为 MP4？
+        </div>
+    </div>
+
+</body>
+</html>
